@@ -1,239 +1,123 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Terraplanagem Forte — serviços de terraplenagem, escavação, nivelamento e movimentação de terra com máquinas próprias e equipe qualificada.">
-  <title>Terraplanagem Forte — Terraplenagem e Movimentação de Terra</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23d97706'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ETF%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terraplenagem - Soluções em Terraplenagem</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Cabeçalho -->
-  <header class="header" id="topo">
-    <div class="container header__inner">
-      <a href="#topo" class="logo">
-        <span class="logo__mark">TF</span>
-        <span class="logo__text">Terraplanagem <strong>Forte</strong></span>
-      </a>
-
-      <nav class="nav" id="nav">
-        <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav__list" id="navList">
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#contato" class="nav__cta">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero / Início -->
-  <section class="hero" id="inicio">
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <p class="hero__eyebrow">Terraplenagem e movimentação de terra</p>
-        <h1 class="hero__title">Preparamos o terreno para a sua obra sair do papel</h1>
-        <p class="hero__text">
-          Escavação, nivelamento, compactação e limpeza de terreno com máquinas
-          próprias e equipe experiente. Atendimento para obras residenciais,
-          comerciais e industriais.
-        </p>
-        <div class="hero__actions">
-          <a href="#contato" class="btn btn--primary">Solicitar orçamento</a>
-          <a href="#servicos" class="btn btn--ghost">Ver serviços</a>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Terraplenagem</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Diferenciais -->
-  <section class="features">
-    <div class="container features__grid">
-      <div class="feature">
-        <div class="feature__icon">🚜</div>
-        <h3>Máquinas próprias</h3>
-        <p>Frota de escavadeiras, retroescavadeiras e caminhões sempre à disposição.</p>
-      </div>
-      <div class="feature">
-        <div class="feature__icon">⏱️</div>
-        <h3>Prazos cumpridos</h3>
-        <p>Planejamento de obra com cronograma claro e entrega dentro do combinado.</p>
-      </div>
-      <div class="feature">
-        <div class="feature__icon">🛡️</div>
-        <h3>Segurança em primeiro lugar</h3>
-        <p>Equipe treinada e todas as normas de segurança do trabalho respeitadas.</p>
-      </div>
-      <div class="feature">
-        <div class="feature__icon">💬</div>
-        <h3>Orçamento sem compromisso</h3>
-        <p>Visita técnica e proposta detalhada sem custo para você decidir com calma.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Soluções Completas em Terraplenagem</h1>
+            <p>Experiência e qualidade em movimentação de terra para seus projetos</p>
+            <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
+        </div>
+    </section>
 
-  <!-- Sobre -->
-  <section class="about" id="sobre">
-    <div class="container about__inner">
-      <div class="about__media" aria-hidden="true">
-        <div class="about__photo">🏗️</div>
-      </div>
-      <div class="about__content">
-        <p class="section__eyebrow">Sobre a empresa</p>
-        <h2 class="section__title">Mais de 15 anos movendo terra com responsabilidade</h2>
-        <p>
-          A Terraplanagem Forte nasceu com um objetivo simples: entregar serviços
-          de terraplenagem de qualidade, no prazo e com preço justo. Ao longo dos
-          anos, participamos de obras de todos os portes, sempre com o mesmo
-          compromisso com a segurança e a satisfação do cliente.
-        </p>
-        <p>
-          Contamos com frota própria e uma equipe de operadores qualificados,
-          prontos para preparar o seu terreno do início ao fim da obra.
-        </p>
-        <ul class="about__list">
-          <li>Frota própria e sempre revisada</li>
-          <li>Equipe qualificada e certificada</li>
-          <li>Atendimento em toda a região</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços -->
-  <section class="services" id="servicos">
-    <div class="container">
-      <div class="section__head">
-        <p class="section__eyebrow">O que fazemos</p>
-        <h2 class="section__title">Nossos serviços</h2>
-        <p class="section__lead">Soluções completas em movimentação de terra para o seu projeto.</p>
-      </div>
-
-      <div class="services__grid">
-        <article class="service-card">
-          <div class="service-card__icon">⛏️</div>
-          <h3>Escavação</h3>
-          <p>Abertura de valas, fundações e escavações em geral com precisão e agilidade.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon">📐</div>
-          <h3>Nivelamento de terreno</h3>
-          <p>Regularização e nivelamento para deixar o terreno pronto para construir.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon">🧱</div>
-          <h3>Compactação de solo</h3>
-          <p>Compactação técnica para garantir estabilidade e resistência do solo.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon">🌿</div>
-          <h3>Limpeza de terreno</h3>
-          <p>Remoção de vegetação, entulho e preparação da área para o início da obra.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon">🚚</div>
-          <h3>Transporte de material</h3>
-          <p>Carga e transporte de terra, areia, brita e outros materiais para a obra.</p>
-        </article>
-        <article class="service-card">
-          <div class="service-card__icon">🏞️</div>
-          <h3>Aterro e desaterro</h3>
-          <p>Execução de aterros e remoção de material para atingir a cota desejada.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Chamada para ação -->
-  <section class="cta">
-    <div class="container cta__inner">
-      <div>
-        <h2>Pronto para começar a sua obra?</h2>
-        <p>Fale com a gente e receba um orçamento sem compromisso.</p>
-      </div>
-      <a href="#contato" class="btn btn--light">Falar com a equipe</a>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section class="contact" id="contato">
-    <div class="container contact__inner">
-      <div class="contact__info">
-        <p class="section__eyebrow">Fale conosco</p>
-        <h2 class="section__title">Peça seu orçamento</h2>
-        <p>Preencha o formulário ou entre em contato pelos canais abaixo. Respondemos o mais rápido possível.</p>
-
-        <ul class="contact__list">
-          <li>
-            <span class="contact__icon">📞</span>
-            <div>
-              <strong>Telefone / WhatsApp</strong>
-              <a href="tel:+5500000000000">(00) 00000-0000</a>
+    <!-- Sobre -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2>Sobre Nossa Empresa</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Somos uma empresa especializada em serviços de terraplenagem com mais de 15 anos de experiência no mercado. Utilizamos equipamentos modernos e uma equipe altamente qualificada para garantir a qualidade em cada projeto.</p>
+                    <p>Nosso compromisso é entregar soluções eficientes, seguras e dentro do prazo, atendendo às necessidades específicas de cada cliente.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <h3>15+</h3>
+                        <p>Anos de Experiência</p>
+                    </div>
+                    <div class="feature">
+                        <h3>500+</h3>
+                        <p>Projetos Realizados</p>
+                    </div>
+                    <div class="feature">
+                        <h3>100%</h3>
+                        <p>Satisfação dos Clientes</p>
+                    </div>
+                </div>
             </div>
-          </li>
-          <li>
-            <span class="contact__icon">✉️</span>
-            <div>
-              <strong>E-mail</strong>
-              <a href="mailto:contato@terraplanagemforte.com.br">contato@terraplanagemforte.com.br</a>
-            </div>
-          </li>
-          <li>
-            <span class="contact__icon">📍</span>
-            <div>
-              <strong>Endereço</strong>
-              <span>Rua Exemplo, 123 — Cidade / UF</span>
-            </div>
-          </li>
-          <li>
-            <span class="contact__icon">🕐</span>
-            <div>
-              <strong>Horário</strong>
-              <span>Segunda a sexta, 8h às 18h</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+        </div>
+    </section>
 
-      <form class="contact__form" id="contactForm" novalidate>
-        <div class="field">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+    <!-- Serviços -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Escavação</h3>
+                    <p>Escavação e preparação de terrenos com máquinas modernas e precisão</p>
+                </div>
+                <div class="service-card">
+                    <h3>Aterro</h3>
+                    <p>Serviços completos de aterro com compactação e nivelamento adequado</p>
+                </div>
+                <div class="service-card">
+                    <h3>Drenagem</h3>
+                    <p>Projetos de drenagem para proteger e manter a integridade do terreno</p>
+                </div>
+                <div class="service-card">
+                    <h3>Limpeza de Terreno</h3>
+                    <p>Remoção de vegetação e detritos com segurança e eficiência</p>
+                </div>
+                <div class="service-card">
+                    <h3>Contenção</h3>
+                    <p>Estruturas de contenção de encostas e taludes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Consultoria</h3>
+                    <p>Análise e orientação técnica para seus projetos de terraplenagem</p>
+                </div>
+            </div>
         </div>
-        <div class="field">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="voce@email.com" required>
-        </div>
-        <div class="field">
-          <label for="telefone">Telefone</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
-        </div>
-        <div class="field">
-          <label for="mensagem">Mensagem</label>
-          <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte um pouco sobre a sua obra" required></textarea>
-        </div>
-        <button type="submit" class="btn btn--primary btn--block">Enviar mensagem</button>
-        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
+    </section>
 
-  <!-- Rodapé -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <span class="logo__mark">TF</span>
-        <span class="logo__text">Terraplanagem <strong>Forte</strong></span>
-      </div>
-      <p class="footer__copy">© <span id="ano"></span> Terraplanagem Forte. Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    <!-- Contato -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="email" placeholder="Seu Email" required>
+                    <input type="tel" placeholder="Seu Telefone" required>
+                    <textarea placeholder="Descreva seu projeto" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+                <div class="contact-info">
+                    <h3>Informações</h3>
+                    <p><strong>Telefone:</strong> (11) 9999-9999</p>
+                    <p><strong>Email:</strong> contato@terraplenagem.com.br</p>
+                    <p><strong>Endereço:</strong> São Paulo, SP</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script src="js/script.js"></script>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Terraplenagem. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
