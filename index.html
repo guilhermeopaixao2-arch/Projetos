@@ -1,123 +1,635 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terraplenagem - Soluções em Terraplenagem</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       DADOS A PREENCHER (localize os <span class="ph"> no corpo e troque):
+         [CIDADE/UF]      → cidade e estado da sede
+         [REGIÃO]         → região atendida (ex.: "Vale do Paraíba")
+         [ANO]            → ano de fundação
+         WhatsApp         → troque TODAS as ocorrências de "550000000000"
+                            por 55 + DDD + número (ex.: 5512988887777)
+         [E-MAIL]         → e-mail de contato
+         [@INSTAGRAM]     → usuário do Instagram
+         [CNPJ]           → CNPJ
+         Números de frota / anos / prazos / obras → dados reais
+         Fotos            → substituir os blocos .ph-img e .hero__media
+                            por fotos WebP reais (ver comentários)
+       ═══════════════════════════════════════════════════════════════════ -->
+
+  <title>Peixoto Terraplenagem — Terraplenagem em [CIDADE/UF] e região</title>
+  <meta name="description" content="Corte, aterro, compactação e abertura de acessos. Frota própria e operadores fixos em [CIDADE/UF] e região. Peça um orçamento pelo WhatsApp.">
+  <meta name="theme-color" content="#71411A">
+  <link rel="canonical" href="https://www.peixototerraplenagem.com.br/">
+
+  <!-- Favicon: versão reduzida da marca -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Peixoto Terraplenagem — Terraplenagem em [CIDADE/UF]">
+  <meta property="og:description" content="Corte, aterro, compactação e abertura de acessos. Frota própria em [CIDADE/UF] e região.">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Fontes auto-hospedadas (preload dos 3 pesos) -->
+  <link rel="preload" href="fonts/montserrat-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/montserrat-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/montserrat-900.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Schema.org LocalBusiness (SEO local) — preencher os campos -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Peixoto Terraplenagem",
+    "description": "Serviços de terraplenagem: corte, aterro, compactação e abertura de acessos. Frota própria e operadores fixos.",
+    "areaServed": "[CIDADE/UF] e região",
+    "telephone": "+55 00 00000-0000",
+    "email": "[E-MAIL]",
+    "url": "https://www.peixototerraplenagem.com.br/",
+    "foundingDate": "[ANO]",
+    "openingHours": "Mo-Fr 07:00-17:00",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "[CIDADE]",
+      "addressRegion": "[UF]",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
 </head>
 <body>
-    <!-- Navegação -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Terraplenagem</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#contato">Contato</a></li>
+  <a class="visually-hidden" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ══════════════════════ CABEÇALHO ══════════════════════ -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="Peixoto Terraplenagem — início">
+        <span class="brand__symbol" aria-hidden="true">
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#738C33" fill-rule="evenodd" d="M56 12a30 30 0 1 1 0 60 30 30 0 0 1 0-60Zm0 16a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z"/>
+            <path fill="#CF8833" d="M40 55c6 9 22 12 34 3a30 30 0 0 1-26 14 30 30 0 0 1-19-6 14 14 0 0 0 11-11Z"/>
+            <path fill="#71411A" d="M15 88 36 22l5 7 6-6v65Z"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">PEIXOTO</span>
+          <span class="brand__tag">Terraplenagem</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#home">Home</a></li>
+          <li><a class="nav__link" href="#empresa">Empresa</a></li>
+          <li><a class="nav__link" href="#servicos">Serviços</a></li>
+          <li><a class="nav__link" href="#equipamentos">Equipamentos</a></li>
+          <li><a class="nav__link" href="#obras">Obras</a></li>
+          <li><a class="nav__link" href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <!-- Ponto de entrada WhatsApp (mobile) -->
+        <a class="header__wpp" href="https://wa.me/550000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20terraplenagem." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24Zm4.76 10.35c-.26-.13-1.54-.76-1.77-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.03-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.1-1.29-.78-.69-1.3-1.55-1.46-1.81-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.46-.06-.13-.59-1.42-.81-1.94-.21-.51-.43-.44-.59-.45l-.5-.01c-.17 0-.46.06-.7.32-.24.26-.92.9-.92 2.19 0 1.29.94 2.53 1.07 2.71.13.17 1.85 2.82 4.48 3.95.63.27 1.11.43 1.49.55.63.2 1.2.17 1.65.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3Z"/></svg>
+        </a>
+        <a class="btn btn--primary header__cta" href="https://wa.me/550000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20terraplenagem." target="_blank" rel="noopener">Solicitar orçamento</a>
+        <button class="hamburger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu__list">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#empresa">Empresa</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#equipamentos">Equipamentos</a></li>
+      <li><a href="#obras">Obras</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="btn btn--primary btn--block" href="https://wa.me/550000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20terraplenagem." target="_blank" rel="noopener">Solicitar orçamento no WhatsApp</a>
+  </div>
+
+  <main id="conteudo">
+
+    <!-- ══════════════════════ HERO ══════════════════════ -->
+    <section class="hero" id="home">
+      <!-- PLACEHOLDER de foto: escavadeira em operação, poeira, luz natural (WebP).
+           Substituir o fundo de .hero__media (CSS) ou inserir <img> aqui dentro. -->
+      <div class="hero__media" role="img" aria-label="Escavadeira em operação movimentando terra ao entardecer"></div>
+      <div class="hero__overlay"></div>
+
+      <div class="container hero__inner">
+        <p class="kicker">Movimento que constrói o futuro</p>
+        <h1>Terraplenagem em <span class="ph">[REGIÃO]</span> desde <span class="ph">[ANO]</span></h1>
+        <p class="hero__sub">Corte, aterro, compactação e abertura de acessos. Frota própria e operadores fixos em <span class="ph">[CIDADE/UF]</span> e região.</p>
+        <div class="hero__buttons">
+          <a class="btn btn--primary btn--lg" href="https://wa.me/550000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20terraplenagem." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24Zm4.76 10.35c-.26-.13-1.54-.76-1.77-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.03-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.1-1.29-.78-.69-1.3-1.55-1.46-1.81-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.46-.06-.13-.59-1.42-.81-1.94-.21-.51-.43-.44-.59-.45l-.5-.01c-.17 0-.46.06-.7.32-.24.26-.92.9-.92 2.19 0 1.29.94 2.53 1.07 2.71.13.17 1.85 2.82 4.48 3.95.63.27 1.11.43 1.49.55.63.2 1.2.17 1.65.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3Z"/></svg>
+            Solicitar orçamento
+          </a>
+          <a class="btn btn--secondary btn--lg" href="#servicos">Conheça nossos serviços</a>
+        </div>
+      </div>
+
+      <!-- Recorte inferior: curva ampla de morro (arco geométrico, raio definido) -->
+      <svg class="hero__curve" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,80 L0,64 A 1100 1100 0 0 1 620 26 A 1500 1500 0 0 1 1440 58 L1440,80 Z"/>
+      </svg>
+    </section>
+
+    <!-- ══════════════════════ EMPRESA ══════════════════════ -->
+    <section class="section" id="empresa">
+      <div class="container empresa__grid">
+        <div class="empresa__text reveal">
+          <p class="kicker" style="color:var(--verde-texto)">A empresa</p>
+          <h2>Uma empresa familiar que move terra em <span class="ph">[REGIÃO]</span></h2>
+          <div class="rule"></div>
+          <p style="margin-top:24px">A Peixoto Terraplenagem começou em <span class="ph">[ANO]</span>, em <span class="ph">[CIDADE/UF]</span>, com <span class="ph">[UMA / DUAS]</span> máquinas e o próprio dono na operação. <span class="ph">[Frase concreta sobre o começo: quem fundou e o que fazia antes.]</span></p>
+          <p>Hoje são <span class="ph">[N]</span> máquinas próprias e operadores fixos, atendendo construtoras, loteadores e cliente final em <span class="ph">[CIDADE/UF]</span> e região. Cada obra é acompanhada por quem assina o nome na empresa.</p>
+          <p>O trabalho é o mesmo desde o primeiro dia: entregar o terreno pronto para construir, no volume combinado e no prazo combinado.</p>
+
+          <div class="empresa__founder">
+            <!-- Foto do fundador vale mais que qualquer adjetivo (briefing, seção 10) -->
+            <p class="empresa__founder-name"><span class="ph">[NOME DO FUNDADOR]</span></p>
+            <p class="empresa__founder-role">Fundador · <span class="ph">[FUNÇÃO / "está em toda obra"]</span></p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <!-- PLACEHOLDER: foto real da equipe ou do fundador com as máquinas -->
+          <div class="ph-img ph-img--tall" role="img" aria-label="Espaço reservado para foto da equipe ou do fundador">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="8" cy="7" r="2"/></svg>
+            <span>Foto: fundador / equipe<br>com as máquinas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ SERVIÇOS ══════════════════════ -->
+    <section class="section section--alt" id="servicos">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker" style="color:var(--verde-texto)">O que fazemos</p>
+          <h2>Do mato ao terreno pronto para construir</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="grid grid--3">
+          <!-- ETAPA 1 — Preparação do terreno -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 34h36"/><path d="M8 34l9-16 7 9 4-6 8 13"/><path d="M17 18l-2-4"/>
+              </svg>
+            </div>
+            <p class="stage-label">1 · Preparação</p>
+            <h3>Limpeza e destocamento</h3>
+            <p>Remoção de vegetação, raízes e camada orgânica. O terreno fica limpo antes de qualquer corte.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon card__icon--verde" aria-hidden="true">
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 30c6-10 26-10 32 0"/><path d="M6 30h32"/><path d="M22 8v10"/><path d="M17 13l5-5 5 5"/>
+              </svg>
+            </div>
+            <p class="stage-label">1 · Preparação</p>
+            <h3>Abertura de acessos</h3>
+            <p>Estradas e acessos internos para a obra receber caminhão e máquina desde o primeiro dia.</p>
+          </article>
+
+          <!-- ETAPA 2 — Movimentação de terra -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 22h36"/><path d="M12 8v8"/><path d="M8 12l4 4 4-4"/><path d="M32 36v-8"/><path d="M28 32l4-4 4 4"/>
+              </svg>
+            </div>
+            <p class="stage-label">2 · Movimentação</p>
+            <h3>Corte e aterro</h3>
+            <p>Retirada de terra onde sobra, preenchimento onde falta. O terreno vira plano na cota do projeto.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon card__icon--verde" aria-hidden="true">
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 32h32"/><path d="M12 32V20l8-6 8 6v12"/><path d="M16 32v-8h8v8"/>
+              </svg>
+            </div>
+            <p class="stage-label">2 · Movimentação</p>
+            <h3>Escavação e carga</h3>
+            <p>Escavação, carga e transporte do material. Bota-fora ou empréstimo conforme o volume da obra.</p>
+          </article>
+
+          <!-- ETAPA 3 — Acabamento -->
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 34h36"/><path d="M10 22l4 4 4-4"/><path d="M20 22l4 4 4-4"/><path d="M30 22l4 4"/><path d="M6 16h32"/>
+              </svg>
+            </div>
+            <p class="stage-label">3 · Acabamento</p>
+            <h3>Compactação</h3>
+            <p>Solo compactado em camadas, no grau exigido pelo projeto. Base firme para fundação e pavimento.</p>
+          </article>
+
+          <article class="card reveal">
+            <div class="card__icon card__icon--verde" aria-hidden="true">
+              <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 26h32"/><rect x="14" y="20" width="16" height="6" rx="1"/><circle cx="22" cy="23" r="1.4"/><path d="M6 32h32"/>
+              </svg>
+            </div>
+            <p class="stage-label">3 · Acabamento</p>
+            <h3>Nivelamento e patrolamento</h3>
+            <p>Acerto final de cota e caimento com motoniveladora. Terreno entregue no nível combinado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ EQUIPAMENTOS ══════════════════════ -->
+    <section class="section" id="equipamentos">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker" style="color:var(--verde-texto)">Frota própria</p>
+          <h2>A máquina é nossa. O operador também.</h2>
+          <div class="rule"></div>
+          <p style="margin-top:16px">Frota própria e operadores fixos. Sem terceirizar máquina no meio da obra — o que foi combinado é o que entra no terreno. <span class="ph">[Confirme os modelos e capacidades reais abaixo.]</span></p>
+        </div>
+
+        <div class="equip__grid">
+          <!-- Substituir cada .ph-img por foto real da máquina. Nome + capacidade. -->
+          <div class="equip__item reveal">
+            <div class="ph-img" role="img" aria-label="Foto da escavadeira hidráulica">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="17" cy="7" r="2"/></svg>
+              <span>Foto: escavadeira</span>
+            </div>
+            <p class="equip__name">Escavadeira hidráulica</p>
+            <p class="equip__spec"><span class="ph">[N] unidades · [tonelagem, ex.: 20 t]</span></p>
+          </div>
+
+          <div class="equip__item reveal">
+            <div class="ph-img" role="img" aria-label="Foto da pá-carregadeira">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="17" cy="7" r="2"/></svg>
+              <span>Foto: pá-carregadeira</span>
+            </div>
+            <p class="equip__name">Pá-carregadeira</p>
+            <p class="equip__spec"><span class="ph">[N] unidades · [capacidade da concha]</span></p>
+          </div>
+
+          <div class="equip__item reveal">
+            <div class="ph-img" role="img" aria-label="Foto do caminhão basculante">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="17" cy="7" r="2"/></svg>
+              <span>Foto: caminhão basculante</span>
+            </div>
+            <p class="equip__name">Caminhão basculante</p>
+            <p class="equip__spec"><span class="ph">[N] unidades · [caçamba, ex.: 12 m³]</span></p>
+          </div>
+
+          <div class="equip__item reveal">
+            <div class="ph-img" role="img" aria-label="Foto do trator de esteira">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="17" cy="7" r="2"/></svg>
+              <span>Foto: trator de esteira</span>
+            </div>
+            <p class="equip__name">Trator de esteira</p>
+            <p class="equip__spec"><span class="ph">[N] unidades · [modelo/porte]</span></p>
+          </div>
+
+          <div class="equip__item reveal">
+            <div class="ph-img" role="img" aria-label="Foto da motoniveladora">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="17" cy="7" r="2"/></svg>
+              <span>Foto: motoniveladora</span>
+            </div>
+            <p class="equip__name">Motoniveladora</p>
+            <p class="equip__spec"><span class="ph">[N] unidades · [porte]</span></p>
+          </div>
+
+          <div class="equip__item reveal">
+            <div class="ph-img" role="img" aria-label="Foto do rolo compactador">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="17" cy="7" r="2"/></svg>
+              <span>Foto: rolo compactador</span>
+            </div>
+            <p class="equip__name">Rolo compactador</p>
+            <p class="equip__spec"><span class="ph">[N] unidades · [tonelagem]</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ OBRAS ══════════════════════ -->
+    <section class="section section--alt" id="obras">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker" style="color:var(--verde-texto)">Obras</p>
+          <h2>Terrenos que já entregamos prontos</h2>
+          <div class="rule rule--ocre"></div>
+          <p style="margin-top:16px">Cada obra com cidade, volume e prazo. <span class="ph">[Substitua pelos dados reais das suas obras. Filtro por categoria só a partir de 8 obras.]</span></p>
+        </div>
+
+        <div class="obras__grid">
+          <!-- OBRA 1 — exemplo com antes/depois -->
+          <article class="obra reveal">
+            <div class="beforeafter">
+              <figure>
+                <div class="ph-img" role="img" aria-label="Foto do terreno antes do serviço">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/></svg>
+                  <span>Antes</span>
+                </div>
+                <figcaption>Antes</figcaption>
+              </figure>
+              <figure>
+                <div class="ph-img" role="img" aria-label="Foto do terreno depois do serviço">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 20h18"/><path d="M3 20V9l9-4 9 4v11"/></svg>
+                  <span>Depois</span>
+                </div>
+                <figcaption>Depois</figcaption>
+              </figure>
+            </div>
+            <span class="obra__tag">Corte e aterro</span>
+            <h3><span class="ph">[Nome / tipo da obra]</span></h3>
+            <ul class="obra__ficha">
+              <li><span class="k">Cidade</span><span class="v"><span class="ph">[Cidade/UF]</span></span></li>
+              <li><span class="k">Volume</span><span class="v"><span class="ph">[00.000 m³]</span></span></li>
+              <li><span class="k">Prazo</span><span class="v"><span class="ph">[00 dias]</span></span></li>
             </ul>
-        </div>
-    </nav>
+          </article>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Soluções Completas em Terraplenagem</h1>
-            <p>Experiência e qualidade em movimentação de terra para seus projetos</p>
-            <a href="#contato" class="btn btn-primary">Solicitar Orçamento</a>
-        </div>
-    </section>
-
-    <!-- Sobre -->
-    <section id="sobre" class="about">
-        <div class="container">
-            <h2>Sobre Nossa Empresa</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Somos uma empresa especializada em serviços de terraplenagem com mais de 15 anos de experiência no mercado. Utilizamos equipamentos modernos e uma equipe altamente qualificada para garantir a qualidade em cada projeto.</p>
-                    <p>Nosso compromisso é entregar soluções eficientes, seguras e dentro do prazo, atendendo às necessidades específicas de cada cliente.</p>
-                </div>
-                <div class="about-features">
-                    <div class="feature">
-                        <h3>15+</h3>
-                        <p>Anos de Experiência</p>
-                    </div>
-                    <div class="feature">
-                        <h3>500+</h3>
-                        <p>Projetos Realizados</p>
-                    </div>
-                    <div class="feature">
-                        <h3>100%</h3>
-                        <p>Satisfação dos Clientes</p>
-                    </div>
-                </div>
+          <!-- OBRA 2 -->
+          <article class="obra reveal">
+            <div class="obra__media">
+              <div class="ph-img ph-img--wide" role="img" aria-label="Foto da obra de loteamento">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="7" cy="7" r="2"/></svg>
+                <span>Foto da obra</span>
+              </div>
             </div>
-        </div>
-    </section>
+            <span class="obra__tag">Loteamento</span>
+            <h3><span class="ph">[Nome / tipo da obra]</span></h3>
+            <ul class="obra__ficha">
+              <li><span class="k">Cidade</span><span class="v"><span class="ph">[Cidade/UF]</span></span></li>
+              <li><span class="k">Área</span><span class="v"><span class="ph">[00.000 m²]</span></span></li>
+              <li><span class="k">Prazo</span><span class="v"><span class="ph">[00 dias]</span></span></li>
+            </ul>
+          </article>
 
-    <!-- Serviços -->
-    <section id="servicos" class="services">
-        <div class="container">
-            <h2>Nossos Serviços</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Escavação</h3>
-                    <p>Escavação e preparação de terrenos com máquinas modernas e precisão</p>
-                </div>
-                <div class="service-card">
-                    <h3>Aterro</h3>
-                    <p>Serviços completos de aterro com compactação e nivelamento adequado</p>
-                </div>
-                <div class="service-card">
-                    <h3>Drenagem</h3>
-                    <p>Projetos de drenagem para proteger e manter a integridade do terreno</p>
-                </div>
-                <div class="service-card">
-                    <h3>Limpeza de Terreno</h3>
-                    <p>Remoção de vegetação e detritos com segurança e eficiência</p>
-                </div>
-                <div class="service-card">
-                    <h3>Contenção</h3>
-                    <p>Estruturas de contenção de encostas e taludes</p>
-                </div>
-                <div class="service-card">
-                    <h3>Consultoria</h3>
-                    <p>Análise e orientação técnica para seus projetos de terraplenagem</p>
-                </div>
+          <!-- OBRA 3 -->
+          <article class="obra reveal">
+            <div class="obra__media">
+              <div class="ph-img ph-img--wide" role="img" aria-label="Foto da obra de plataforma">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="7" cy="7" r="2"/></svg>
+                <span>Foto da obra</span>
+              </div>
             </div>
-        </div>
-    </section>
+            <span class="obra__tag">Plataforma / aterro</span>
+            <h3><span class="ph">[Nome / tipo da obra]</span></h3>
+            <ul class="obra__ficha">
+              <li><span class="k">Cidade</span><span class="v"><span class="ph">[Cidade/UF]</span></span></li>
+              <li><span class="k">Volume</span><span class="v"><span class="ph">[00.000 m³]</span></span></li>
+              <li><span class="k">Prazo</span><span class="v"><span class="ph">[00 dias]</span></span></li>
+            </ul>
+          </article>
 
-    <!-- Contato -->
-    <section id="contato" class="contact">
-        <div class="container">
-            <h2>Entre em Contato</h2>
-            <div class="contact-content">
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Seu Nome" required>
-                    <input type="email" placeholder="Seu Email" required>
-                    <input type="tel" placeholder="Seu Telefone" required>
-                    <textarea placeholder="Descreva seu projeto" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-                <div class="contact-info">
-                    <h3>Informações</h3>
-                    <p><strong>Telefone:</strong> (11) 9999-9999</p>
-                    <p><strong>Email:</strong> contato@terraplenagem.com.br</p>
-                    <p><strong>Endereço:</strong> São Paulo, SP</p>
-                </div>
+          <!-- OBRA 4 -->
+          <article class="obra reveal">
+            <div class="obra__media">
+              <div class="ph-img ph-img--wide" role="img" aria-label="Foto da obra de acesso">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 17l5-6 4 4 3-4 6 7"/><path d="M3 21h18"/><circle cx="7" cy="7" r="2"/></svg>
+                <span>Foto da obra</span>
+              </div>
             </div>
+            <span class="obra__tag">Abertura de acesso</span>
+            <h3><span class="ph">[Nome / tipo da obra]</span></h3>
+            <ul class="obra__ficha">
+              <li><span class="k">Cidade</span><span class="v"><span class="ph">[Cidade/UF]</span></span></li>
+              <li><span class="k">Extensão</span><span class="v"><span class="ph">[0,0 km]</span></span></li>
+              <li><span class="k">Prazo</span><span class="v"><span class="ph">[00 dias]</span></span></li>
+            </ul>
+          </article>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Terraplenagem. Todos os direitos reservados.</p>
+    <!-- ══════════════════════ DIFERENCIAIS ══════════════════════ -->
+    <section class="section" id="diferenciais">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker" style="color:var(--verde-texto)">Por que a Peixoto</p>
+          <h2>Número, não adjetivo</h2>
+          <div class="rule"></div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="difs__grid">
+          <div class="dif reveal">
+            <p class="dif__num"><span class="ph">[N]</span> <span class="unit">anos</span></p>
+            <h3>Movendo terra em <span class="ph">[região]</span></h3>
+            <p>Desde <span class="ph">[ANO]</span> no mesmo tipo de trabalho, para construtora, loteador e cliente final.</p>
+          </div>
+
+          <div class="dif reveal">
+            <p class="dif__num"><span class="ph">[N]</span> <span class="unit">máquinas</span></p>
+            <h3>Frota própria, operadores fixos</h3>
+            <p>A máquina é da empresa e o operador também. Nada de terceirizar no meio da obra.</p>
+          </div>
+
+          <div class="dif reveal">
+            <p class="dif__num"><span class="ph">[N]</span> <span class="unit">dias</span></p>
+            <h3>Da visita ao início</h3>
+            <p><span class="ph">[Prazo médio real entre a visita ao terreno e a mobilização da máquina.]</span></p>
+          </div>
+
+          <div class="dif reveal">
+            <p class="dif__num">Direto</p>
+            <h3>Você fala com o dono</h3>
+            <p>Sem intermediário e sem call center. Quem orça a obra é quem toca a obra.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS: seção CORTADA de propósito.
+         O briefing (seção 10) manda cortar se não houver depoimento real e
+         autorizado — depoimento inventado destrói a credibilidade. Ao ter
+         depoimentos reais, reabrir aqui com cards fundo #F2F2F2, raio 12px, sem sombra. -->
+
+    <!-- ══════════════════════ CTA ══════════════════════ -->
+    <section class="section cta">
+      <div class="container">
+        <h2>Tem um terreno para virar plano?</h2>
+        <p>Manda a localização e o que precisa. A gente responde com o próximo passo.</p>
+        <a class="btn btn--primary btn--lg" href="https://wa.me/550000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20terraplenagem." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24Zm4.76 10.35c-.26-.13-1.54-.76-1.77-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.03-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.1-1.29-.78-.69-1.3-1.55-1.46-1.81-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.46-.06-.13-.59-1.42-.81-1.94-.21-.51-.43-.44-.59-.45l-.5-.01c-.17 0-.46.06-.7.32-.24.26-.92.9-.92 2.19 0 1.29.94 2.53 1.07 2.71.13.17 1.85 2.82 4.48 3.95.63.27 1.11.43 1.49.55.63.2 1.2.17 1.65.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3Z"/></svg>
+          Solicitar orçamento no WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════════════════ CONTATO ══════════════════════ -->
+    <section class="section section--alt" id="contato">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker" style="color:var(--verde-texto)">Contato</p>
+          <h2>Fale com a gente</h2>
+          <div class="rule"></div>
+        </div>
+
+        <div class="contato__grid">
+          <!-- CAMINHO PRINCIPAL: WhatsApp -->
+          <div class="contato__whats reveal">
+            <h3>WhatsApp</h3>
+            <p>O jeito mais rápido. Manda a localização do terreno e o que precisa.</p>
+            <a class="btn btn--primary btn--block" href="https://wa.me/550000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20terraplenagem." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24Z"/></svg>
+              Falar no WhatsApp
+            </a>
+
+            <div class="contato__dados">
+              <dl>
+                <dt>Telefone</dt><dd><span class="ph">[(00) 00000-0000]</span></dd>
+                <dt>E-mail</dt><dd><span class="ph">[E-MAIL]</span></dd>
+                <dt>Atende</dt><dd><span class="ph">[CIDADE/UF] e região — ex.: Vale do Paraíba]</span></dd>
+                <dt>Horário</dt><dd><span class="ph">[Seg a Sex, 7h às 17h]</span></dd>
+                <dt>Instagram</dt><dd><a href="#"><span class="ph">[@INSTAGRAM]</span></a></dd>
+              </dl>
+              <!-- Mapa só se for sede real. Operando do pátio, a região atendida em texto já resolve. -->
+            </div>
+          </div>
+
+          <!-- ALTERNATIVA: formulário de e-mail -->
+          <div class="reveal">
+            <h3 style="margin-bottom:6px">Prefere formalizar?</h3>
+            <p class="small" style="margin-bottom:22px;color:var(--cinza)">Preencha e a gente retorna. Campos com <span style="color:var(--ocre);font-weight:700">*</span> são obrigatórios.</p>
+
+            <!-- TÉCNICO: formulário estático precisa de back-end para receber.
+                 Opções (briefing, seção 11): A) Netlify Forms  B) Formspree/Web3Forms
+                 C) Google Apps Script → notifica no WhatsApp de quem atende.
+                 Troque o action abaixo pelo endpoint escolhido.
+                 ⚠ Só mantenha este formulário se HOUVER alguém para responder. -->
+            <form class="form" id="form-orcamento" action="#" method="POST" novalidate>
+              <div class="field">
+                <label for="nome">Nome <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="nome" name="nome" autocomplete="name" required>
+                <span class="field__error" data-error>Informe seu nome.</span>
+              </div>
+
+              <div class="field">
+                <label for="telefone">Telefone / WhatsApp <span class="req" aria-hidden="true">*</span></label>
+                <input type="tel" id="telefone" name="telefone" autocomplete="tel" inputmode="tel" required>
+                <span class="field__error" data-error>Informe um telefone com DDD.</span>
+              </div>
+
+              <div class="field">
+                <label for="email">E-mail <span class="req" aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <span class="field__error" data-error>Informe um e-mail válido.</span>
+              </div>
+
+              <div class="field">
+                <label for="cidade">Cidade do terreno <span class="req" aria-hidden="true">*</span></label>
+                <input type="text" id="cidade" name="cidade" required>
+                <span class="field__error" data-error>Informe a cidade do terreno.</span>
+              </div>
+
+              <div class="field">
+                <label for="servico">Serviço</label>
+                <select id="servico" name="servico">
+                  <option value="">Selecione (opcional)</option>
+                  <option>Limpeza e destocamento</option>
+                  <option>Abertura de acessos</option>
+                  <option>Corte e aterro</option>
+                  <option>Escavação e carga</option>
+                  <option>Compactação</option>
+                  <option>Nivelamento e patrolamento</option>
+                  <option>Não sei / preciso de orientação</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Volume aproximado, prazo, o que precisa..."></textarea>
+              </div>
+
+              <div class="field consent">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent">Autorizo o contato pelos dados informados, conforme a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>. <span class="req" aria-hidden="true">*</span></label>
+              </div>
+              <span class="field__error" data-error data-for="consent" style="display:none">É preciso autorizar o contato.</span>
+
+              <button class="btn btn--primary btn--block btn--lg" type="submit">Enviar pedido de orçamento</button>
+              <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════════════ RODAPÉ ══════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="brand" style="pointer-events:none">
+            <span class="brand__symbol" aria-hidden="true">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M56 12a30 30 0 1 1 0 60 30 30 0 0 1 0-60Zm0 16a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z"/>
+                <path d="M40 55c6 9 22 12 34 3a30 30 0 0 1-26 14 30 30 0 0 1-19-6 14 14 0 0 0 11-11Z"/>
+                <path d="M15 88 36 22l5 7 6-6v65Z"/>
+              </svg>
+            </span>
+            <span class="brand__text">
+              <span class="brand__name">PEIXOTO</span>
+              <span class="brand__tag">Terraplenagem</span>
+            </span>
+          </span>
+          <p>Corte, aterro, compactação e abertura de acessos. Frota própria em <span class="ph">[CIDADE/UF]</span> e região desde <span class="ph">[ANO]</span>.</p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#empresa">Empresa</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#equipamentos">Equipamentos</a></li>
+            <li><a href="#obras">Obras</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="https://wa.me/550000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20terraplenagem." target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="mailto:[E-MAIL]"><span class="ph">[E-MAIL]</span></a></li>
+            <li><a href="#"><span class="ph">[@INSTAGRAM]</span></a></li>
+            <li><span class="ph">[CIDADE/UF] e região</span></li>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>CNPJ <span class="ph">[00.000.000/0001-00]</span></span>
+        <span>© <span class="ph">[ANO]</span> Peixoto Terraplenagem</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante (canto inferior direito, sem pulso, sem sombra) -->
+  <a class="wpp-float" href="https://wa.me/550000000000?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20de%20terraplenagem." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24Zm4.76 10.35c-.26-.13-1.54-.76-1.77-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.83 1.03-.15.17-.3.19-.56.06-.26-.13-1.1-.4-2.1-1.29-.78-.69-1.3-1.55-1.46-1.81-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.46-.06-.13-.59-1.42-.81-1.94-.21-.51-.43-.44-.59-.45l-.5-.01c-.17 0-.46.06-.7.32-.24.26-.92.9-.92 2.19 0 1.29.94 2.53 1.07 2.71.13.17 1.85 2.82 4.48 3.95.63.27 1.11.43 1.49.55.63.2 1.2.17 1.65.1.5-.07 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3Z"/></svg>
+  </a>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

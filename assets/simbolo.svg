@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Peixoto Terraplenagem">
+  <!-- Bowl do P: anel verde-oliva (loop superior), counter branco recortado -->
+  <path fill="#738C33" fill-rule="evenodd" d="M56 12a30 30 0 1 1 0 60 30 30 0 0 1 0-60Zm0 16a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z"/>
+  <!-- Camada de solo: onda ocre no terço inferior do bowl -->
+  <path fill="#CF8833" d="M40 55c6 9 22 12 34 3a30 30 0 0 1-26 14 30 30 0 0 1-19-6 14 14 0 0 0 11-11Z"/>
+  <!-- Mountain marrom: haste + morro à esquerda, com recorte de duplo pico -->
+  <path fill="#71411A" d="M15 88 36 22l5 7 6-6v65Z"/>
+</svg>
