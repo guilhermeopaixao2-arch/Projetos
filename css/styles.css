@@ -383,6 +383,17 @@ p { max-width: 65ch; }
   color: var(--verde-texto); margin-bottom: 6px;
 }
 
+/* Serviços complementares — separados da sequência das etapas */
+.services-extra { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--linha); }
+.services-extra__head {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ocre); margin-bottom: 24px;
+}
+.services-extra__head::before {
+  content: ""; width: 26px; height: 3px; border-radius: 2px; background: currentColor; flex: none;
+}
+
 /* ---------- 11. EQUIPAMENTOS ---------- */
 .equip__grid { display: grid; gap: 24px; }
 .equip__item { }
@@ -720,6 +731,7 @@ p { max-width: 65ch; }
   .hero__terrain { height: 100px; }
   .band__inner { grid-template-columns: 1fr 1fr; gap: 56px; padding-block: 90px; }
   .hero__stat b { font-size: 36px; }
+  .services-extra { margin-top: 64px; padding-top: 56px; }
 }
 
 /* Desktop largo ≥ 1280px */
