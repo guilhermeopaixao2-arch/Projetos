@@ -96,12 +96,24 @@ h3 { font-size: 22px; font-weight: 700; }          /* mobile; 28px no desktop */
 p { max-width: 65ch; }
 
 .kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ocre);           /* ocre como chamada visual sobre fundo claro/escuro */
   margin-bottom: 12px;
+}
+/* Marcador do kicker: filete curto que ecoa o traçado do terreno */
+.kicker::before {
+  content: "";
+  width: 26px;
+  height: 3px;
+  border-radius: 2px;
+  background: currentColor;
+  flex: none;
 }
 
 .small { font-size: 15px; }
@@ -117,8 +129,21 @@ p { max-width: 65ch; }
 .section { padding-block: var(--gap-secao); }
 .section--alt { background: var(--fundo-alt); }
 
-.section__head { margin-bottom: 40px; max-width: 65ch; }
+.section__head { position: relative; margin-bottom: 40px; max-width: 65ch; }
 .section__head .kicker + h2 { margin-top: 0; }
+
+/* Índice de seção — número grande e vazado, cara de projeto executivo */
+.section__index {
+  display: block;
+  font-size: 64px;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--linha);
+  margin-bottom: 12px;
+  user-select: none;
+}
 
 /* Filete decorativo (verde/ocre) — usado com moderação */
 .rule {
@@ -292,6 +317,8 @@ p { max-width: 65ch; }
 }
 .hero__buttons { display: flex; flex-direction: column; gap: 14px; }
 
+.hero .contours { color: var(--ocre); opacity: 0.22; z-index: 0; }
+
 /* Recorte inferior em curva ampla de morro (única concessão orgânica) */
 .hero__curve {
   position: absolute; left: 0; right: 0; bottom: -1px; z-index: 0;
@@ -313,12 +340,31 @@ p { max-width: 65ch; }
 .grid { display: grid; gap: 24px; }
 
 .card {
+  position: relative;
   background: var(--branco);
   border: 1px solid var(--linha);
   border-radius: var(--raio-card);
   padding: 32px;
-  /* SEM sombra (manual, seção 12). A borda faz o trabalho da sombra. */
+  overflow: hidden;
+  transition: transform .3s ease, border-color .3s ease;
+  /* SEM sombra (manual, seção 12). A borda + a barra de acento fazem o trabalho. */
 }
+/* Barra de acento no topo — cresce no hover (movimento, não sombra) */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  height: 4px;
+  width: 100%;
+  background: var(--verde);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--marrom); }
+.card:hover::before { transform: scaleX(1); }
+.card:nth-child(3n-1)::before { background: var(--ocre); }
+.card:nth-child(3n)::before { background: var(--marrom); }
 .card__icon { width: 44px; height: 44px; color: var(--marrom); margin-bottom: 18px; }
 .card__icon svg { width: 100%; height: 100%; stroke: currentColor; }
 .card__icon--verde { color: var(--verde); }
@@ -375,18 +421,31 @@ p { max-width: 65ch; }
 
 /* ---------- 13. DIFERENCIAIS ---------- */
 .difs__grid { display: grid; gap: 24px; }
-.dif { padding: 28px 0; border-top: 3px solid var(--verde); }
-.dif__num { font-size: 40px; font-weight: 900; color: var(--marrom); line-height: 1; }
-.dif__num .unit { font-size: 18px; color: var(--ocre); }
-.dif h3 { font-size: 20px; margin: 10px 0 6px; }
+.dif { position: relative; padding: 28px 0 0; border-top: 3px solid var(--verde); }
+.dif::before {
+  content: "";
+  position: absolute; top: -3px; left: 0;
+  width: 40px; height: 3px; background: var(--ocre);
+}
+.dif__num {
+  font-size: 52px; font-weight: 900; color: var(--marrom);
+  line-height: 0.95; letter-spacing: -0.02em;
+}
+.dif__num .unit { display: block; font-size: 16px; font-weight: 700; color: var(--ocre); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 4px; }
+.dif h3 { font-size: 20px; margin: 14px 0 6px; }
 .dif p { font-size: 16px; color: var(--cinza); }
 
 /* ---------- 14. CTA ---------- */
 .cta {
+  position: relative;
   background: var(--marrom);
   color: var(--branco);
   text-align: center;
+  overflow: hidden;
+  isolation: isolate;
 }
+.cta .contours { color: #FFFFFF; opacity: 0.12; }
+.cta > .container { position: relative; z-index: 1; }
 .cta h2 { color: var(--branco); margin-bottom: 12px; }
 .cta p { color: var(--branco); opacity: 0.9; margin: 0 auto 28px; max-width: 52ch; }
 .cta .btn--primary { background: var(--branco); color: var(--marrom); border-color: var(--branco); }
@@ -523,7 +582,97 @@ p { max-width: 65ch; }
 .lead { font-size: 20px; }
 
 /* =========================================================================
-   20. RESPONSIVO (mobile-first → escala para cima)
+   20. CAMADA CRIATIVA — topografia, seção de terreno, faixas
+   Motivo: curvas de nível + corte de terreno. É a linguagem de quem mede
+   e move terra — dá personalidade sem virar enfeite gratuito.
+   ========================================================================= */
+
+/* ---- Curvas de nível (decorativo, atrás do conteúdo) ---- */
+.contours {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.contours path { fill: none; stroke: currentColor; stroke-width: 1.4; }
+
+/* Faixa de números do hero — prova concreta logo de cara */
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 20px;
+  margin-top: 40px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255,255,255,0.22);
+  max-width: 560px;
+}
+.hero__inner { position: relative; z-index: 1; }
+.hero__stat b {
+  display: block;
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--branco);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.hero__stat b .unit { color: var(--ocre); font-size: 16px; }
+.hero__stat span {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--branco);
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+/* Silhueta de terreno em camadas ao pé do hero (substitui a curva simples) */
+.hero__terrain {
+  position: absolute; left: 0; right: 0; bottom: -1px; z-index: 0;
+  width: 100%; height: 70px; display: block;
+}
+.hero__terrain .layer-back { fill: var(--fundo-alt); }
+.hero__terrain .layer-front { fill: var(--branco); }
+.hero__terrain .layer-line { fill: none; stroke: var(--ocre); stroke-width: 2; opacity: 0.5; }
+
+/* ---- Banda de corte e aterro (statement + seção de terreno) ---- */
+.band {
+  position: relative;
+  background: var(--marrom);
+  color: var(--branco);
+  overflow: hidden;
+  isolation: isolate;
+}
+.band .contours { color: #FFFFFF; opacity: 0.14; }
+.band__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  padding-block: 64px;
+}
+.band__text h2 { color: var(--branco); }
+.band__text p { color: var(--branco); opacity: 0.9; font-size: 17px; margin-top: 14px; }
+.band__text .kicker { color: var(--ocre); }
+
+/* Diagrama: perfil de terreno antes (irregular) → depois (na cota) */
+.cutfill { width: 100%; height: auto; display: block; }
+.cutfill .ground-before { fill: none; stroke: var(--ocre); stroke-width: 2.5; stroke-dasharray: 6 5; }
+.cutfill .ground-after { fill: rgba(255,255,255,0.10); stroke: var(--branco); stroke-width: 2.5; }
+.cutfill .datum { stroke: rgba(255,255,255,0.35); stroke-width: 1; stroke-dasharray: 3 4; }
+.cutfill text { fill: var(--branco); font-family: inherit; font-size: 13px; font-weight: 700; }
+.cutfill .cut-label { fill: var(--ocre); }
+
+/* ---- Divisor angular entre seções (corte reto do terreno) ---- */
+.section--cut { clip-path: polygon(0 0, 100% 26px, 100% 100%, 0 100%); margin-top: -26px; }
+
+/* =========================================================================
+   21. RESPONSIVO (mobile-first → escala para cima)
    ========================================================================= */
 
 /* Tablet ≥ 640px */
@@ -567,6 +716,10 @@ p { max-width: 65ch; }
   .empresa__grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 64px; }
   .contato__grid { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
   .cta p { font-size: 20px; }
+
+  .hero__terrain { height: 100px; }
+  .band__inner { grid-template-columns: 1fr 1fr; gap: 56px; padding-block: 90px; }
+  .hero__stat b { font-size: 36px; }
 }
 
 /* Desktop largo ≥ 1280px */
