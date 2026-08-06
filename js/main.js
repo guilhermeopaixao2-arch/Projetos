@@ -1,7 +1,9 @@
 /* =========================================================================
    PEIXOTO TERRAPLENAGEM — JS
-   Apenas: menu mobile, validação/estados do formulário, scroll-reveal.
-   Sem bibliotecas. Sem carrossel, contador ou parallax.
+   Menu mobile, validação/estados do formulário, scroll-reveal, curvas de
+   nível animadas, parallax sutil no hero e contador dos números.
+   GSAP + ScrollTrigger auto-hospedados (js/vendor). Se não carregarem, tudo
+   cai de volta pro comportamento sem biblioteca (ver cada seção abaixo).
    ========================================================================= */
 (function () {
   "use strict";
@@ -33,13 +35,28 @@
     });
   }
 
-  /* ---------- 2. SCROLL-REVEAL (fade in / slide up, 0.3s) ---------- */
+  /* ---------- 2. SCROLL-REVEAL (fade in / slide up) ---------- */
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var reveals = document.querySelectorAll(".reveal");
+  var hasGSAP = typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
+
+  if (hasGSAP) gsap.registerPlugin(ScrollTrigger);
 
   if (reduceMotion || !("IntersectionObserver" in window)) {
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
+  } else if (hasGSAP) {
+    // Entrada escalonada: quando um grupo de itens entra junto (ex.: grid de
+    // cards), anima em sequência em vez de todos ao mesmo tempo.
+    ScrollTrigger.batch(reveals, {
+      start: "top 88%",
+      once: true,
+      onEnter: function (batch) {
+        gsap.to(batch, { opacity: 1, y: 0, stagger: 0.08, duration: 0.5, ease: "power2.out" });
+      }
+    });
   } else {
+    // Sem GSAP disponível (falha de carregamento): volta pro comportamento
+    // original com IntersectionObserver puro.
     var io = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -49,6 +66,60 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     reveals.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- 2b. CURVAS DE NÍVEL — desenho ao carregar ---------- */
+  if (hasGSAP && !reduceMotion) {
+    var contourPaths = document.querySelectorAll(".hero .contours path");
+    contourPaths.forEach(function (path, i) {
+      var length = path.getTotalLength();
+      path.style.strokeDasharray = length;
+      path.style.strokeDashoffset = length;
+      gsap.to(path, {
+        strokeDashoffset: 0,
+        duration: 1.4,
+        ease: "power2.out",
+        delay: 0.2 + i * 0.12
+      });
+    });
+  }
+
+  /* ---------- 2c. PARALLAX sutil no hero ---------- */
+  if (hasGSAP && !reduceMotion) {
+    gsap.to(".hero .contours, .hero__terrain", {
+      y: 20,
+      ease: "none",
+      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+    });
+  }
+
+  /* ---------- 2d. CONTADOR dos números do hero ---------- */
+  // Só anima quando o texto já for um número real (ex.: "18"). Enquanto for
+  // o placeholder "[N]", pula sem quebrar — ativa sozinho quando o dado
+  // real for preenchido no HTML.
+  if (hasGSAP && !reduceMotion) {
+    document.querySelectorAll(".hero__stat b").forEach(function (el) {
+      var target = el.childNodes[0];
+      if (!target || target.nodeType !== Node.ELEMENT_NODE) target = el.querySelector(".ph") || el;
+      var raw = target.textContent.trim();
+      var value = parseInt(raw.replace(/\D/g, ""), 10);
+      if (!raw.match(/^\d+$/) || isNaN(value)) return;
+
+      var counter = { val: 0 };
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 90%",
+        once: true,
+        onEnter: function () {
+          gsap.to(counter, {
+            val: value,
+            duration: 1.2,
+            ease: "power1.out",
+            onUpdate: function () { target.textContent = Math.round(counter.val); }
+          });
+        }
+      });
+    });
   }
 
   /* ---------- 3. FORMULÁRIO — validação e estados ---------- */

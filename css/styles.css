@@ -572,11 +572,11 @@ p { max-width: 65ch; }
   border-bottom: 2px dotted var(--ocre);
 }
 
-/* ---------- 19. ANIMAÇÕES (fade in / slide up, 0.3s) ---------- */
-.reveal {
-  opacity: 0; transform: translateY(16px);
-  transition: opacity .3s ease, transform .3s ease;
-}
+/* ---------- 19. ANIMAÇÕES (fade in / slide up) ---------- */
+/* Sem "transition" aqui: a interpolação é feita pelo GSAP (main.js) quando
+   disponível. O fallback sem GSAP usa a classe is-visible sem transição
+   (aparece direto) — ver seção 2 do main.js. */
+.reveal { opacity: 0; transform: translateY(16px); }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
