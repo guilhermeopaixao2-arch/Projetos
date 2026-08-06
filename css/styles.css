@@ -29,14 +29,14 @@
 
 /* ---------- 2. VARIÁVEIS ---------- */
 :root {
-  /* Primárias */
-  --marrom: #71411A;          /* logo, botões principais, títulos, rodapé */
-  --marrom-hover: #5A3413;    /* hover do primário (10.85 c/ branco) */
-  --verde: #738C33;           /* ícones, filetes, bordas decorativas (NUNCA fundo de botão c/ branco) */
+  /* Primárias — paleta oficial da marca (guia de identidade visual) */
+  --marrom: #4B2E15;          /* TERRA — logo, botões principais, títulos, rodapé (12.36 c/ branco) */
+  --marrom-hover: #3C2511;    /* hover do primário, mais escuro que --marrom */
+  --verde: #738C33;           /* OLIVA — ícones, filetes, bordas decorativas (NUNCA fundo de botão c/ branco) */
   --verde-texto: #5F742A;     /* verde para TEXTO sobre fundo claro (5.23 OK — legível) */
   --verde-btn: #627A2E;       /* fundo de botão secundário CORRIGIDO (4.84 OK) */
   --verde-btn-hover: #5F742A; /* hover secundário (5.23 OK) */
-  --ocre: #CF8833;            /* chamada VISUAL: filete, rótulo, número — nunca botão c/ branco */
+  --ocre: #CF8833;            /* OCRE — chamada VISUAL: filete, rótulo, número — nunca botão c/ branco */
   --cinza: #333333;           /* texto */
   --branco: #FFFFFF;          /* fundo principal */
 
@@ -44,7 +44,7 @@
   --fundo-alt: #FAF9F7;       /* seções alternadas */
   --cinza-claro: #F2F2F2;     /* fundo de depoimentos */
   --linha: #E5E5E5;           /* separadores e bordas de card */
-  --rodape: #5A3413;          /* rodapé — opção B (mantém o sistema fechado, 10.85 OK) */
+  --rodape: #3C2511;          /* rodapé — terra escurecido (mantém o sistema fechado) */
   --texto-escuro: #1A1A1A;    /* texto escuro sobre ocre, se necessário (5.99 OK) */
 
   /* Espaçamento */
