@@ -396,14 +396,56 @@ p { max-width: 65ch; }
 
 /* ---------- 11. EQUIPAMENTOS ---------- */
 .equip__grid { display: grid; gap: 24px; }
-.equip__item { }
+/* Coluna + margin-top:auto no botão = todos os "Solicitar locação" alinhados
+   na base da linha, mesmo com specs de alturas diferentes. */
+.equip__item { display: flex; flex-direction: column; }
 .equip__media {
   border-radius: var(--raio-card);
   overflow: hidden;
   border: 1px solid var(--linha);
 }
 .equip__name { font-weight: 900; color: var(--marrom); font-size: 18px; margin-top: 14px; }
-.equip__spec { font-size: 15px; color: var(--cinza); }
+.equip__spec { font-size: 15px; color: var(--cinza); margin-bottom: 14px; }
+
+/* Cada máquina é um pedido de locação em um toque — mensagem já preenchida */
+.equip__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  min-height: 46px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--marrom);
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-botao);
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .3s ease;
+}
+.equip__cta svg { width: 18px; height: 18px; flex: none; }
+.equip__cta:hover,
+.equip__cta:focus-visible {
+  background: var(--marrom);
+  border-color: var(--marrom);
+  color: var(--branco);
+  transform: translateY(-2px);
+}
+
+/* Link de apoio dentro de card (ex.: "Ver máquinas disponíveis →") */
+.card__link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--verde-texto);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s ease;
+}
+.card__link:hover,
+.card__link:focus-visible { border-bottom-color: var(--verde-texto); }
 
 /* ---------- 12. OBRAS ---------- */
 .obras__grid { display: grid; gap: 32px; }
@@ -519,6 +561,9 @@ p { max-width: 65ch; }
 .form__status { font-size: 15px; font-weight: 700; min-height: 1.2em; }
 .form__status.is-error { color: #B3261E; }
 .form__status.is-success { color: var(--verde-btn); }
+
+/* Botão de resgate: aparece quando o envio por e-mail não é possível */
+.form__fallback { margin-top: 14px; }
 
 /* ---------- 16. RODAPÉ ---------- */
 .footer {

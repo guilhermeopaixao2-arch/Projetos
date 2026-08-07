@@ -8,6 +8,21 @@
 (function () {
   "use strict";
 
+  /* =======================================================================
+     CONFIGURAÇÃO — o único lugar para mexer
+     =======================================================================
+     Chave do Web3Forms: faz o formulário chegar por e-mail, sem back-end.
+     Como pegar (2 minutos, de graça):
+       1. Entre em https://web3forms.com
+       2. Digite o e-mail que vai RECEBER os pedidos e clique em criar
+       3. A chave chega nesse e-mail — cole ela entre as aspas abaixo
+
+     Enquanto estiver vazia, o formulário NÃO finge que enviou: ele monta o
+     pedido e oferece o botão para mandar pelo WhatsApp. Nenhum orçamento
+     se perde nem antes nem depois de configurar.
+     ===================================================================== */
+  var WEB3FORMS_KEY = "";
+
   /* ---------- 1. MENU MOBILE ---------- */
   var hamburger = document.querySelector(".hamburger");
   var menu = document.getElementById("mobile-menu");
@@ -177,8 +192,59 @@
       if (field) field.classList.remove("has-error");
       var consentError = form.querySelector('[data-for="consent"]');
       if (el.id === "consent" && consentError) consentError.style.display = "none";
+      // Dado mudou: o link do WhatsApp montado antes ficou velho, some com ele.
+      clearFallback();
     });
   });
+
+  /* ---------- 3b. REDE DE SEGURANÇA: WHATSAPP ----------
+     Um pedido de orçamento nunca pode sumir em silêncio. Se não há chave
+     configurada, ou se o envio falha (rede caiu, serviço fora do ar), o
+     cliente recebe o MESMO pedido pronto para mandar no WhatsApp. */
+
+  // O número sai do botão flutuante — assim continua existindo uma fonte da
+  // verdade só: o "550000000000" que você troca no index.html vale aqui também.
+  function wppNumber() {
+    var link = document.querySelector(".wpp-float");
+    var m = link && link.href.match(/wa\.me\/(\d+)/);
+    return m ? m[1] : "";
+  }
+
+  function wppMessage() {
+    function val(id) {
+      var el = document.getElementById(id);
+      return el ? el.value.trim() : "";
+    }
+    var linhas = [
+      "Olá! Pedido de orçamento pelo site:",
+      "",
+      "Nome: " + val("nome"),
+      "Telefone: " + val("telefone"),
+      "E-mail: " + val("email"),
+      "Cidade do terreno: " + val("cidade")
+    ];
+    if (val("servico")) linhas.push("Serviço: " + val("servico"));
+    if (val("mensagem")) linhas.push("", val("mensagem"));
+    return linhas.join("\n");
+  }
+
+  function clearFallback() {
+    var old = form.querySelector(".form__fallback");
+    if (old) old.parentNode.removeChild(old);
+  }
+
+  function renderFallback() {
+    clearFallback();
+    var num = wppNumber();
+    if (!num) return;
+    var a = document.createElement("a");
+    a.className = "btn btn--secondary btn--block form__fallback";
+    a.href = "https://wa.me/" + num + "?text=" + encodeURIComponent(wppMessage());
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.textContent = "Enviar este pedido pelo WhatsApp";
+    statusEl.insertAdjacentElement("afterend", a);
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -194,32 +260,54 @@
     }
 
     // Estado "enviando"
+    clearFallback();
     submitBtn.disabled = true;
     var originalLabel = submitBtn.textContent;
     submitBtn.textContent = "Enviando...";
     statusEl.textContent = "";
 
-    /* ⚠ BACK-END: este formulário precisa de um destino real para enviar.
-       Escolha uma das opções do briefing (seção 11) e substitua o bloco abaixo:
-
-       A) Netlify Forms  → adicione ao <form>: data-netlify="true" e um input
-          hidden "form-name"; remova o preventDefault e deixe o submit nativo.
-       B) Formspree / Web3Forms → troque o action por:
-             fetch(form.action, { method: "POST", body: new FormData(form),
-               headers: { Accept: "application/json" } })
-       C) Google Apps Script → POST para a Web App publicada, que grava numa
-          planilha e dispara notificação no WhatsApp de quem atende.
-
-       Enquanto não houver back-end, simulamos o sucesso para demonstrar os
-       estados (enviando → sucesso). NÃO publique em produção sem conectar o
-       destino — senão o orçamento cai num buraco (briefing, "risco operacional"). */
-
-    setTimeout(function () {
+    function restore() {
       submitBtn.disabled = false;
       submitBtn.textContent = originalLabel;
+    }
+
+    function ok() {
+      restore();
       form.reset();
       statusEl.className = "form__status is-success";
-      statusEl.textContent = "Pedido registrado. Retornaremos em breve. (Demonstração — conecte o back-end para envio real.)";
-    }, 900);
+      statusEl.textContent = "Pedido enviado. Retornaremos em breve.";
+    }
+
+    function offerWhatsApp(motivo) {
+      restore();
+      statusEl.className = "form__status is-error";
+      statusEl.textContent = motivo;
+      renderFallback();
+    }
+
+    // Sem chave: não fingimos envio — mandamos pelo canal que já funciona.
+    if (!WEB3FORMS_KEY) {
+      offerWhatsApp("Falta um passo: confirme o envio pelo WhatsApp.");
+      return;
+    }
+
+    var dados = new FormData(form);
+    dados.append("access_key", WEB3FORMS_KEY);
+    dados.append("subject", "Novo pedido de orçamento pelo site");
+    dados.append("from_name", "Site Peixoto Terraplenagem");
+
+    fetch(form.action, {
+      method: "POST",
+      body: dados,
+      headers: { Accept: "application/json" }
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d && d.success) ok();
+        else offerWhatsApp("Não conseguimos enviar agora. Mande pelo WhatsApp:");
+      })
+      .catch(function () {
+        offerWhatsApp("Não conseguimos enviar agora. Mande pelo WhatsApp:");
+      });
   });
 })();
