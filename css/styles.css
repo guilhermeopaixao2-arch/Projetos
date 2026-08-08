@@ -363,7 +363,10 @@ p { max-width: 65ch; }
 .card h3 { margin-bottom: 10px; }
 .card p { color: var(--cinza); font-size: 16px; }
 .card__link {
-  display: inline-flex; align-items: center; gap: 6px; margin-top: 16px;
+  display: inline-flex; align-items: center; gap: 6px;
+  /* padding + margem menor: mantém o respiro visual de ~16px e leva o alvo
+     de toque a 44px (era 24px — difícil de acertar no dedo). */
+  margin-top: 6px; padding: 10px 0;
   font-size: 15px; font-weight: 700; color: var(--marrom);
 }
 .card__link:hover { color: var(--marrom-hover); }
@@ -779,6 +782,9 @@ p { max-width: 65ch; }
   h1 { font-size: 48px; }
   h2 { font-size: 36px; }
   h3 { font-size: 28px; }
+  /* Sobe junto: senão o 24px fixo abaixo venceria por especificidade e os
+     três focos ficariam MENORES que os cards secundários. */
+  .card--foco h3 { font-size: 30px; }
 
   .hero { min-height: 92vh; }
   .hero__inner { text-align: left; padding-block: 90px 120px; }
