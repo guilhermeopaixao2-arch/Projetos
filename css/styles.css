@@ -51,10 +51,11 @@
   --margem-lateral: 24px;     /* mobile; escala em media queries */
   --gap-secao: 72px;          /* mobile; 120px no desktop */
 
-  /* Raios */
-  --raio-card: 12px;
-  --raio-botao: 10px;
-  --raio-campo: 8px;
+  /* Raios — canto quase reto. Arredondado + linha fina lê como app consumer;
+     o assunto aqui é máquina pesada. Ver IDENTIDADE.md, seção 6. */
+  --raio-card: 4px;
+  --raio-botao: 4px;
+  --raio-campo: 4px;
 }
 
 /* ---------- 3. RESET / BASE ---------- */
@@ -132,18 +133,9 @@ p { max-width: 65ch; }
 .section__head { position: relative; margin-bottom: 40px; max-width: 65ch; }
 .section__head .kicker + h2 { margin-top: 0; }
 
-/* Índice de seção — número grande e vazado, cara de projeto executivo */
-.section__index {
-  display: block;
-  font-size: 64px;
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--linha);
-  margin-bottom: 12px;
-  user-select: none;
-}
+/* Os índices 01–06 saíram: Empresa/Serviços/Equipamentos/Obras não são uma
+   sequência, então o número era decoração fingindo de informação.
+   A numeração real (1·2·3 das etapas da obra) vive em .etapa__num. */
 
 /* Filete decorativo (verde/ocre) — usado com moderação */
 .rule {
@@ -377,11 +369,39 @@ p { max-width: 65ch; }
 .card__link:hover { color: var(--marrom-hover); }
 .card__link svg { width: 16px; height: 16px; }
 
-/* Etapa (rótulo de agrupamento dos serviços) */
-.stage-label {
-  font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--verde-texto); margin-bottom: 6px;
+/* Foco — os três serviços que a frota realmente executa. Acento fixo (o
+   hover dos .card já move a barra do topo); aqui o peso vem do título. */
+.card--foco h3 { font-size: 24px; }
+.card--foco p { font-size: 17px; }
+
+/* ---------- 10b. ETAPAS DA OBRA ----------
+   Aqui o número carrega informação: a obra É uma sequência. */
+.etapas { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--linha); }
+.etapas__head {
+  font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--verde-texto); margin-bottom: 28px;
 }
+.etapas__list { list-style: none; display: grid; gap: 28px; }
+.etapa { display: flex; gap: 20px; align-items: flex-start; }
+.etapa__num {
+  flex: none;
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  font-size: 22px; font-weight: 900; line-height: 1;
+  color: var(--branco); background: var(--marrom);
+  border-radius: var(--raio-card);
+  font-variant-numeric: tabular-nums;
+}
+.etapa h3 { font-size: 20px; margin-bottom: 6px; }
+.etapa p { color: var(--cinza); font-size: 16px; }
+.etapas__nota {
+  margin-top: 28px; padding: 20px 24px;
+  background: var(--branco); border: 1px solid var(--linha);
+  border-left: 3px solid var(--ocre);
+  border-radius: var(--raio-card);
+  font-size: 16px; max-width: none;
+}
+.etapas__nota strong { color: var(--marrom); }
 
 /* Serviços complementares — separados da sequência das etapas */
 .services-extra { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--linha); }
@@ -434,18 +454,27 @@ p { max-width: 65ch; }
   transform: translateY(-2px);
 }
 
-/* Link de apoio dentro de card (ex.: "Ver máquinas disponíveis →") */
-.card__link {
-  display: inline-block;
-  margin-top: 14px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--verde-texto);
-  border-bottom: 1px solid transparent;
-  transition: border-color .3s ease;
+/* Ficha técnica da máquina — dado denso lê como profissional */
+.equip__model {
+  font-size: 15px; font-weight: 700; color: var(--verde-texto);
+  letter-spacing: 0.02em; margin-top: 2px;
 }
-.card__link:hover,
-.card__link:focus-visible { border-bottom-color: var(--verde-texto); }
+.equip__ficha {
+  display: grid; gap: 2px; margin: 12px 0 16px;
+  font-size: 14px; border-top: 1px solid var(--linha); padding-top: 10px;
+}
+.equip__ficha > div { display: flex; justify-content: space-between; gap: 12px; }
+.equip__ficha dt { color: var(--cinza); }
+.equip__ficha dd { font-weight: 700; color: var(--marrom); font-variant-numeric: tabular-nums; }
+
+/* O que não é da frota — dito na cara, vira argumento de coordenação */
+.equip__nota {
+  margin-top: 32px; padding: 24px;
+  background: var(--fundo-alt); border-left: 3px solid var(--ocre);
+  border-radius: var(--raio-card);
+  font-size: 16px; max-width: none;
+}
+.equip__nota strong { color: var(--marrom); }
 
 /* ---------- 12. OBRAS ---------- */
 .obras__grid { display: grid; gap: 32px; }
@@ -768,6 +797,7 @@ p { max-width: 65ch; }
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
   .difs__grid { grid-template-columns: repeat(4, 1fr); }
   .equip__grid { grid-template-columns: repeat(3, 1fr); }
+  .etapas__list { grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
   .empresa__grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 64px; }
   .contato__grid { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
