@@ -50,6 +50,21 @@
     });
   }
 
+  /* ---------- 1b. WHATSAPP FLUTUANTE ----------
+     O hero já tem dois caminhos claros de contato. O botão flutuante só
+     aparece depois dele, evitando concorrer com os CTAs e cobrir as métricas
+     em telas pequenas. */
+  var wppFloat = document.querySelector(".wpp-float");
+  var hero = document.querySelector(".hero");
+  if (wppFloat && hero && "IntersectionObserver" in window) {
+    var wppObserver = new IntersectionObserver(function (entries) {
+      wppFloat.classList.toggle("is-visible", !entries[0].isIntersecting);
+    });
+    wppObserver.observe(hero);
+  } else if (wppFloat) {
+    wppFloat.classList.add("is-visible");
+  }
+
   /* ---------- 2. SCROLL-REVEAL (fade in / slide up) ---------- */
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var reveals = document.querySelectorAll(".reveal");

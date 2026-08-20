@@ -202,19 +202,9 @@ p { max-width: 65ch; }
   gap: 16px;
 }
 
-/* Assinatura horizontal: símbolo SVG + wordmark em texto vivo (Montserrat) */
-.brand { display: inline-flex; align-items: center; gap: 12px; }
-.brand__symbol { width: 46px; height: 46px; flex: none; }
-.brand__symbol svg { width: 100%; height: 100%; display: block; }
-.brand__text { display: flex; flex-direction: column; line-height: 1; }
-.brand__name {
-  font-size: 20px; font-weight: 900; color: var(--marrom);
-  letter-spacing: 0.02em;
-}
-.brand__tag {
-  font-size: 10px; font-weight: 700; color: var(--verde);
-  letter-spacing: 0.22em; text-transform: uppercase; margin-top: 3px;
-}
+/* Logo oficial em versão horizontal transparente. */
+.brand { display: inline-flex; align-items: center; line-height: 0; }
+.brand__logo { display: block; width: clamp(145px, 42vw, 220px); height: auto; }
 
 /* Navegação desktop — escondida no mobile */
 .nav { display: none; }
@@ -282,11 +272,9 @@ p { max-width: 65ch; }
 }
 .hero__media {
   position: absolute; inset: 0; z-index: -2;
-  /* PLACEHOLDER: substituir por foto real de escavadeira em operação (WebP).
-     ex.: background-image: url("../assets/hero.webp"); */
   background: #2B1A10 center / cover no-repeat;
 }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; }
+.hero__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 /* Overlay preto 55% — CORRIGIDO (passa em foto clara, média e escura) */
 .hero__overlay { position: absolute; inset: 0; z-index: -1; background: rgba(0,0,0,0.55); }
 
@@ -322,6 +310,14 @@ p { max-width: 65ch; }
 .empresa__grid { display: grid; gap: 40px; }
 .empresa__text p + p { margin-top: 18px; }
 .empresa__text { max-width: 62ch; }
+.empresa__media {
+  margin: 0;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--raio-card);
+  overflow: hidden;
+  border: 1px solid var(--linha);
+}
+.empresa__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .empresa__founder {
   margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--linha);
 }
@@ -427,6 +423,7 @@ p { max-width: 65ch; }
   overflow: hidden;
   border: 1px solid var(--linha);
 }
+.equip__media img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; }
 .equip__name { font-weight: 900; color: var(--marrom); font-size: 18px; margin-top: 14px; }
 .equip__spec { font-size: 15px; color: var(--cinza); margin-bottom: 14px; }
 
@@ -483,6 +480,7 @@ p { max-width: 65ch; }
 .obras__grid { display: grid; gap: 32px; }
 .obra { }
 .obra__media { border-radius: var(--raio-card); overflow: hidden; border: 1px solid var(--linha); position: relative; }
+.obra__media img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: center; }
 .obra__tag {
   display: inline-block; margin-top: 16px;
   font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
@@ -496,13 +494,6 @@ p { max-width: 65ch; }
 }
 .obra__ficha dt, .obra__ficha .k { color: var(--cinza); font-weight: 400; }
 .obra__ficha .v { font-weight: 700; color: var(--marrom); text-align: right; }
-
-/* Antes/depois lado a lado */
-.beforeafter { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.beforeafter figcaption {
-  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-  color: var(--cinza); padding: 8px 0 0;
-}
 
 /* ---------- 13. DIFERENCIAIS ---------- */
 .difs__grid { display: grid; gap: 24px; }
@@ -606,10 +597,7 @@ p { max-width: 65ch; }
 .footer a { color: var(--branco); opacity: 0.85; }
 .footer a:hover { opacity: 1; text-decoration: underline; }
 .footer__grid { display: grid; gap: 36px; }
-/* Assinatura monocromática branca (manual, seção 11) */
-.footer__brand .brand__symbol svg path { fill: var(--branco) !important; }
-.footer__brand .brand__name { color: var(--branco); }
-.footer__brand .brand__tag { color: var(--branco); opacity: 0.7; }
+.footer__logo { display: block; width: min(230px, 100%); height: auto; padding: 10px 12px; border-radius: 6px; background: var(--branco); }
 .footer__brand p { font-size: 14px; opacity: 0.8; margin-top: 16px; max-width: 40ch; }
 .footer__col h4 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--branco); margin-bottom: 14px; }
 .footer__col ul { list-style: none; display: grid; gap: 10px; font-size: 15px; }
@@ -624,24 +612,13 @@ p { max-width: 65ch; }
   width: 60px; height: 60px; border-radius: 50%;
   background: var(--marrom); color: var(--branco);
   display: inline-flex; align-items: center; justify-content: center;
-  border: none; transition: background-color .3s ease;
+  border: none; opacity: 0; pointer-events: none; transform: translateY(12px);
+  transition: background-color .3s ease, opacity .2s ease, transform .2s ease;
   /* SEM animação de pulso (manual, seção 12). SEM sombra. */
 }
+.wpp-float.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 .wpp-float:hover { background: var(--marrom-hover); }
 .wpp-float svg { width: 32px; height: 32px; }
-
-/* ---------- 18. PLACEHOLDER DE IMAGEM (mockup de layout) ---------- */
-.ph-img {
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
-  aspect-ratio: 4 / 3; width: 100%;
-  background: var(--fundo-alt);
-  border: 1px dashed var(--linha);
-  color: #9a8f84; text-align: center; padding: 20px;
-}
-.ph-img svg { width: 40px; height: 40px; color: var(--verde); opacity: 0.7; }
-.ph-img span { font-size: 13px; font-weight: 700; letter-spacing: 0.02em; }
-.ph-img--wide { aspect-ratio: 16 / 10; }
-.ph-img--tall { aspect-ratio: 3 / 4; }
 
 /* Marcador de dado a preencher (find & replace) */
 .ph {
