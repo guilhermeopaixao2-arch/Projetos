@@ -478,6 +478,19 @@ p { max-width: 65ch; }
 
 /* ---------- 12. OBRAS ---------- */
 .obras__grid { display: grid; gap: 32px; }
+.obras__antes-depois { display: grid; gap: 16px; margin: 32px 0; }
+.antes-depois__item {
+  margin: 0; overflow: hidden; border: 1px solid var(--linha);
+  border-radius: var(--raio-card); background: var(--branco);
+}
+.antes-depois__item img {
+  display: block; width: 100%; aspect-ratio: 3 / 4;
+  object-fit: cover; object-position: center;
+}
+.antes-depois__item figcaption {
+  padding: 12px 16px; color: var(--marrom);
+  font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+}
 .obra { }
 .obra__media { border-radius: var(--raio-card); overflow: hidden; border: 1px solid var(--linha); position: relative; }
 .obra__media img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: center; }
@@ -749,6 +762,7 @@ p { max-width: 65ch; }
   .equip__grid { grid-template-columns: 1fr 1fr; }
   .difs__grid { grid-template-columns: 1fr 1fr; }
   .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
+  .obras__antes-depois { grid-template-columns: 1fr 1fr; }
   .obras__grid { grid-template-columns: 1fr 1fr; }
 }
 
