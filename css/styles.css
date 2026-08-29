@@ -379,15 +379,6 @@ p { max-width: 65ch; }
 }
 .etapa h3 { font-size: 20px; margin-bottom: 6px; }
 .etapa p { color: var(--cinza); font-size: 16px; }
-.etapas__nota {
-  margin-top: 28px; padding: 20px 24px;
-  background: var(--branco); border: 1px solid var(--linha);
-  border-left: 3px solid var(--ocre);
-  border-radius: var(--raio-card);
-  font-size: 16px; max-width: none;
-}
-.etapas__nota strong { color: var(--marrom); }
-
 /* Serviços complementares — separados da sequência das etapas */
 .services-extra { margin-top: 48px; padding-top: 40px; border-top: 1px solid var(--linha); }
 .services-extra__head {
@@ -511,7 +502,7 @@ p { max-width: 65ch; }
 .footer a { color: var(--branco); opacity: 0.85; }
 .footer a:hover { opacity: 1; text-decoration: underline; }
 .footer__grid { display: grid; gap: 36px; }
-.footer__logo { display: block; width: min(230px, 100%); height: auto; padding: 10px 12px; border-radius: 6px; background: var(--branco); }
+.footer__logo { display: block; width: min(230px, 100%); height: auto; filter: brightness(0) invert(1); }
 .footer__brand p { font-size: 14px; opacity: 0.8; margin-top: 16px; max-width: 40ch; }
 .footer__col h4 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--branco); margin-bottom: 14px; }
 .footer__col ul { list-style: none; display: grid; gap: 10px; font-size: 15px; }
