@@ -409,10 +409,6 @@ p { max-width: 65ch; }
   display: block; width: 100%; aspect-ratio: 3 / 4;
   object-fit: cover; object-position: center;
 }
-.antes-depois__item figcaption {
-  padding: 12px 16px; color: var(--marrom);
-  font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
-}
 /* ---------- 12. DIFERENCIAIS ---------- */
 .difs__grid { display: grid; gap: 24px; }
 .dif { position: relative; padding: 28px 0 0; border-top: 3px solid var(--verde); }
