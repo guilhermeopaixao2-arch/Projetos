@@ -307,22 +307,8 @@ p { max-width: 65ch; }
 .hero__curve path { fill: var(--branco); }
 
 /* ---------- 9. EMPRESA ---------- */
-.empresa__grid { display: grid; gap: 40px; }
 .empresa__text p + p { margin-top: 18px; }
 .empresa__text { max-width: 62ch; }
-.empresa__media {
-  margin: 0;
-  aspect-ratio: 3 / 4;
-  border-radius: var(--raio-card);
-  overflow: hidden;
-  border: 1px solid var(--linha);
-}
-.empresa__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.empresa__founder {
-  margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--linha);
-}
-.empresa__founder-name { font-weight: 900; color: var(--marrom); font-size: 18px; }
-.empresa__founder-role { font-size: 15px; color: var(--cinza); }
 
 /* ---------- 10. CARDS / SERVIÇOS ---------- */
 .grid { display: grid; gap: 24px; }
@@ -413,71 +399,7 @@ p { max-width: 65ch; }
   content: ""; width: 26px; height: 3px; border-radius: 2px; background: currentColor; flex: none;
 }
 
-/* ---------- 11. EQUIPAMENTOS ---------- */
-.equip__grid { display: grid; gap: 24px; }
-/* Coluna + margin-top:auto no botão = todos os "Solicitar locação" alinhados
-   na base da linha, mesmo com specs de alturas diferentes. */
-.equip__item { display: flex; flex-direction: column; }
-.equip__media {
-  border-radius: var(--raio-card);
-  overflow: hidden;
-  border: 1px solid var(--linha);
-}
-.equip__media img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; }
-.equip__name { font-weight: 900; color: var(--marrom); font-size: 18px; margin-top: 14px; }
-.equip__spec { font-size: 15px; color: var(--cinza); margin-bottom: 14px; }
-
-/* Cada máquina é um pedido de locação em um toque — mensagem já preenchida */
-.equip__cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: auto;
-  min-height: 46px;
-  padding: 12px 16px;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1;
-  color: var(--marrom);
-  background: var(--branco);
-  border: 1px solid var(--linha);
-  border-radius: var(--raio-botao);
-  transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .3s ease;
-}
-.equip__cta svg { width: 18px; height: 18px; flex: none; }
-.equip__cta:hover,
-.equip__cta:focus-visible {
-  background: var(--marrom);
-  border-color: var(--marrom);
-  color: var(--branco);
-  transform: translateY(-2px);
-}
-
-/* Ficha técnica da máquina — dado denso lê como profissional */
-.equip__model {
-  font-size: 15px; font-weight: 700; color: var(--verde-texto);
-  letter-spacing: 0.02em; margin-top: 2px;
-}
-.equip__ficha {
-  display: grid; gap: 2px; margin: 12px 0 16px;
-  font-size: 14px; border-top: 1px solid var(--linha); padding-top: 10px;
-}
-.equip__ficha > div { display: flex; justify-content: space-between; gap: 12px; }
-.equip__ficha dt { color: var(--cinza); }
-.equip__ficha dd { font-weight: 700; color: var(--marrom); font-variant-numeric: tabular-nums; }
-
-/* O que não é da frota — dito na cara, vira argumento de coordenação */
-.equip__nota {
-  margin-top: 32px; padding: 24px;
-  background: var(--fundo-alt); border-left: 3px solid var(--ocre);
-  border-radius: var(--raio-card);
-  font-size: 16px; max-width: none;
-}
-.equip__nota strong { color: var(--marrom); }
-
-/* ---------- 12. OBRAS ---------- */
-.obras__grid { display: grid; gap: 32px; }
+/* ---------- 11. OBRAS ---------- */
 .obras__antes-depois { display: grid; gap: 16px; margin: 32px 0; }
 .antes-depois__item {
   margin: 0; overflow: hidden; border: 1px solid var(--linha);
@@ -491,24 +413,7 @@ p { max-width: 65ch; }
   padding: 12px 16px; color: var(--marrom);
   font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
 }
-.obra { }
-.obra__media { border-radius: var(--raio-card); overflow: hidden; border: 1px solid var(--linha); position: relative; }
-.obra__media img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: center; }
-.obra__tag {
-  display: inline-block; margin-top: 16px;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--ocre);                       /* rótulo ocre — chamada visual sobre branco */
-}
-.obra h3 { margin: 6px 0 14px; }
-.obra__ficha { list-style: none; border-top: 1px solid var(--linha); }
-.obra__ficha li {
-  display: flex; justify-content: space-between; gap: 16px;
-  padding: 10px 0; border-bottom: 1px solid var(--linha); font-size: 15px;
-}
-.obra__ficha dt, .obra__ficha .k { color: var(--cinza); font-weight: 400; }
-.obra__ficha .v { font-weight: 700; color: var(--marrom); text-align: right; }
-
-/* ---------- 13. DIFERENCIAIS ---------- */
+/* ---------- 12. DIFERENCIAIS ---------- */
 .difs__grid { display: grid; gap: 24px; }
 .dif { position: relative; padding: 28px 0 0; border-top: 3px solid var(--verde); }
 .dif::before {
@@ -759,11 +664,9 @@ p { max-width: 65ch; }
   .hero__buttons { flex-direction: row; }
   .hero__buttons .btn { flex: 1; }
   .grid--2 { grid-template-columns: 1fr 1fr; }
-  .equip__grid { grid-template-columns: 1fr 1fr; }
   .difs__grid { grid-template-columns: 1fr 1fr; }
   .footer__grid { grid-template-columns: 1.4fr 1fr 1fr; }
   .obras__antes-depois { grid-template-columns: 1fr 1fr; }
-  .obras__grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* Notebook ≥ 1024px */
@@ -793,10 +696,8 @@ p { max-width: 65ch; }
   .grid--3 { grid-template-columns: repeat(3, 1fr); }
   .grid--4 { grid-template-columns: repeat(4, 1fr); }
   .difs__grid { grid-template-columns: repeat(4, 1fr); }
-  .equip__grid { grid-template-columns: repeat(3, 1fr); }
   .etapas__list { grid-template-columns: repeat(3, 1fr); gap: 32px; }
 
-  .empresa__grid { grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 64px; }
   .contato__grid { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
   .cta p { font-size: 20px; }
 

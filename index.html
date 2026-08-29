@@ -23,10 +23,6 @@
          Fundação       → 2000; os anos das máquinas ainda precisam ser
                           confirmados antes de publicar.
 
-       FROTA (seção #equipamentos)
-         Os modelos confirmados são CAT 315, Hyundai R80 e Case W20.
-         Os demais detalhes serão incluídos apenas quando forem confirmados.
-
        FORMULÁRIO
          Chave do Web3Forms → constante WEB3FORMS_KEY, topo de
          js/main.js. Sem ela o pedido vai por WhatsApp (não se perde).
@@ -96,7 +92,6 @@
           <li><a class="nav__link" href="#home">Home</a></li>
           <li><a class="nav__link" href="#empresa">Empresa</a></li>
           <li><a class="nav__link" href="#servicos">Serviços</a></li>
-          <li><a class="nav__link" href="#equipamentos">Equipamentos</a></li>
           <li><a class="nav__link" href="#obras">Obras</a></li>
           <li><a class="nav__link" href="#contato">Contato</a></li>
         </ul>
@@ -122,7 +117,6 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#empresa">Empresa</a></li>
       <li><a href="#servicos">Serviços</a></li>
-      <li><a href="#equipamentos">Equipamentos</a></li>
       <li><a href="#obras">Obras</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
@@ -171,7 +165,7 @@
 
     <!-- ══════════════════════ EMPRESA ══════════════════════ -->
     <section class="section" id="empresa">
-      <div class="container empresa__grid">
+      <div class="container">
         <div class="empresa__text reveal">
           <p class="kicker" style="color:var(--verde-texto)">A empresa</p>
           <h2>Escavação e terraplenagem com máquina própria na Grande São Paulo</h2>
@@ -181,9 +175,6 @@
           <p>O trabalho é o mesmo desde o primeiro dia: entregar o terreno pronto para construir, no volume combinado e no prazo combinado.</p>
         </div>
 
-        <figure class="empresa__media reveal">
-          <img src="assets/images/cat-315-obra.jpg" width="3072" height="4096" alt="Escavadeira Caterpillar em terreno de terraplenagem" loading="lazy" decoding="async">
-        </figure>
       </div>
     </section>
 
@@ -226,8 +217,8 @@
               </svg>
             </div>
             <h3>Locação de equipamento</h3>
-            <p>As máquinas da frota para alugar, com ou sem operador, por diária, semana ou mês. Disponibilidade sob consulta — a máquina pode estar em obra.</p>
-            <a class="card__link" href="#equipamentos">Ver as máquinas &rarr;</a>
+            <p>Equipamentos para locação, com ou sem operador, por diária, semana ou mês. Disponibilidade e condições sob consulta.</p>
+            <a class="card__link" href="https://wa.me/5511910110562?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Peixoto%20Terraplenagem%20e%20tenho%20interesse." target="_blank" rel="noopener">Consultar disponibilidade &rarr;</a>
           </article>
         </div>
 
@@ -315,71 +306,12 @@
       </div>
     </section>
 
-    <!-- ══════════════════════ EQUIPAMENTOS ══════════════════════ -->
-    <section class="section" id="equipamentos">
-      <div class="container">
-        <div class="section__head reveal">
-          <p class="kicker" style="color:var(--verde-texto)">Frota própria</p>
-          <h2>A frota, máquina por máquina</h2>
-          <div class="rule"></div>
-          <p style="margin-top:16px">Máquina própria e operador nosso — o que foi orçado é o que entra no terreno. Todas também para locação, com ou sem operador. <strong>Disponibilidade sob consulta</strong>: a máquina pode estar em obra, então o valor e a data saem na conversa.</p>
-        </div>
-
-        <div class="equip__grid">
-          <div class="equip__item reveal">
-            <div class="equip__media">
-              <img src="assets/images/cat-315-obra.jpg" width="3072" height="4096" alt="Escavadeira Caterpillar 315 em obra" loading="lazy" decoding="async">
-            </div>
-            <p class="equip__name">Escavadeira hidráulica</p>
-            <p class="equip__model">Caterpillar 315</p>
-            <dl class="equip__ficha">
-              <div><dt>Porte</dt><dd>~15 t</dd></div>
-            </dl>
-            <a class="equip__cta" href="https://wa.me/5511910110562?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Peixoto%20Terraplenagem%20e%20tenho%20interesse." target="_blank" rel="noopener" aria-label="Consultar disponibilidade da escavadeira Caterpillar 315 pelo WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24Z"/></svg>
-              Consultar disponibilidade
-            </a>
-          </div>
-
-          <div class="equip__item reveal">
-            <div class="equip__media">
-              <img src="assets/images/case-w20b-em-obra.jpg" width="3072" height="4096" alt="Pá-carregadeira Case W20 em obra" loading="lazy" decoding="async">
-            </div>
-            <p class="equip__name">Pá-carregadeira</p>
-            <p class="equip__model">Case W20</p>
-            <dl class="equip__ficha">
-              <div><dt>Porte</dt><dd>~10 t</dd></div>
-            </dl>
-            <a class="equip__cta" href="https://wa.me/5511910110562?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Peixoto%20Terraplenagem%20e%20tenho%20interesse." target="_blank" rel="noopener" aria-label="Consultar disponibilidade da pá-carregadeira Case W20 pelo WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24Z"/></svg>
-              Consultar disponibilidade
-            </a>
-          </div>
-
-          <div class="equip__item reveal">
-            <div class="equip__media">
-              <img src="assets/images/retroescavadeira-case.jpg" width="4128" height="3096" alt="Retroescavadeira Case em serviço" loading="lazy" decoding="async">
-            </div>
-            <p class="equip__name">Retroescavadeira</p>
-            <a class="equip__cta" href="https://wa.me/5511910110562?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Peixoto%20Terraplenagem%20e%20tenho%20interesse." target="_blank" rel="noopener" aria-label="Consultar disponibilidade da retroescavadeira pelo WhatsApp">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.82c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.17 8.17 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24Z"/></svg>
-              Consultar disponibilidade
-            </a>
-          </div>
-
-        </div>
-
-        <!-- O que NAO e da frota: dito na cara, vira argumento de coordenacao -->
-        <p class="equip__nota reveal"><strong>O que não é nosso, a gente contrata.</strong> Caçamba adicional, rolo compactador e motoniveladora entram por nossa conta quando a obra pede — com um orçamento só e um responsável só pela entrega.</p>
-      </div>
-    </section>
-
     <!-- ══════════════════════ OBRAS ══════════════════════ -->
     <section class="section section--alt" id="obras">
       <div class="container">
         <div class="section__head reveal">
           <p class="kicker" style="color:var(--verde-texto)">Obras</p>
-          <h2>Registros reais em campo</h2>
+          <h2>Antes e depois</h2>
           <div class="rule rule--ocre"></div>
           <p style="margin-top:16px">Registros reais de serviços executados pela Peixoto Terraplenagem. Por privacidade, não divulgamos localização nem dados de clientes.</p>
         </div>
@@ -393,24 +325,6 @@
             <img src="assets/images/obra-depois-terreno.png" width="1086" height="1448" alt="Terreno após a limpeza inicial e preparação para terraplenagem" loading="lazy" decoding="async">
             <figcaption>Depois da limpeza inicial</figcaption>
           </figure>
-        </div>
-
-        <div class="obras__grid obras__grid--gallery">
-          <article class="obra reveal">
-            <div class="obra__media">
-              <img src="assets/images/obra-terreno-01.jpg" width="4128" height="3096" alt="Terreno em preparação durante serviço de terraplenagem" loading="lazy" decoding="async">
-            </div>
-          </article>
-          <article class="obra reveal">
-            <div class="obra__media">
-              <img src="assets/images/hero-cat-em-operacao.jpg" width="4128" height="2322" alt="Escavadeira em operação em área de terraplenagem" loading="lazy" decoding="async">
-            </div>
-          </article>
-          <article class="obra reveal">
-            <div class="obra__media">
-              <img src="assets/images/case-w20b-em-obra.jpg" width="3072" height="4096" alt="Máquinas próprias em terreno de terraplenagem" loading="lazy" decoding="async">
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -586,7 +500,6 @@
           <ul>
             <li><a href="#empresa">Empresa</a></li>
             <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#equipamentos">Equipamentos</a></li>
             <li><a href="#obras">Obras</a></li>
             <li><a href="#contato">Contato</a></li>
           </ul>
