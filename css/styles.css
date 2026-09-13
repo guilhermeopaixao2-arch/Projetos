@@ -446,6 +446,7 @@ p { max-width: 65ch; }
 .contato__dados dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; font-size: 16px; }
 .contato__dados dt { font-weight: 700; color: var(--marrom); }
 .contato__dados dd { color: var(--cinza); }
+.contato__dados + .btn { margin-top: 20px; }
 
 /* Formulário */
 .form { display: grid; gap: 18px; }

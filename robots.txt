@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://guilhermeopaixao2-arch.github.io/Projetos/sitemap.xml
+Sitemap: https://peixototerraplenagem.com.br/sitemap.xml
